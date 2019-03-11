@@ -12,3 +12,15 @@ div {
   align-items: center;
   justify-content: center;
 }
+
+div[class = "container"], [id = "addListing"] {
+  background-color: #FFFF33;
+}
+
+div[id="listing"] {
+  background-color: white
+}
+
+div[id="listing_2"] {
+  background-color: white
+}
