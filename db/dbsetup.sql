@@ -1,6 +1,0 @@
-CREATE DATABASE makersbnb;
-CREATE TABLE listings(id SERIAL PRIMARY KEY, name VARCHAR(500), price INT);
-
-
-CREATE DATABASE makersbnb_test;
-CREATE TABLE listings(id SERIAL PRIMARY KEY, name VARCHAR(500), price INT);
