@@ -3,19 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="../Public/style.css">
   <title></title>
 </head>
-<body>
-  <div id="makersBnb" class="container">
-    <div>
-      <h1>Makers Bnb!</h1>
-      <h2>Listings post here...</h2>
-    </div>
+<body class="home">
+  <div id="header" class="container">
+    <h1>Makers Bnb!</h1>
+    <h2>Listings post here...</h2>
   </div>
-  <div id="addListing" class="container">
+  <div id="add-new-listing" class="container">
     <form class="" action="addListing.html" method="post">
       <input type="submit" class="btn btn-primary" name="addNewListing" value="add new listing">
     </form>
@@ -23,15 +20,35 @@
   <br>
   <br>
   <br>
-  <div id="showlisting" class="container"><br>
-    <div id="listing" class="container">listing</div>
-    <br><div id="listing_2" class="container">Display listing</div><br>
-    <p>hello I'm a div</p>
+  <div id="list-listings" class="container">
+    <h2>Listings...</h2>
     <br>
     <br>
+    <div id="listing" class="container">
+      <div id="listing-col1" class="container">
+        <h4>Property name: </h4>
+        <p>Price per night: </p>
+        <p>Description: </p>
+      </div>
+      <div id="listing-col2" class="container">
+        <h5>Owner name: </h5>
+        <p>Email: </p>
+        <p>Phone: </p>
+      </div>
+    </div>
     <br>
-    <br>
-    <br>
+    <div id="listing" class="container">
+      <div id="listing-col1" class="container">
+        <h4>Property name: </h4>
+        <p>Price per night: </p>
+        <p>Description: </p>
+      </div>
+      <div id="listing-col2" class="container">
+        <h5>Owner name: </h5>
+        <p>Email: </p>
+        <p>Phone: </p>
+      </div>
+    </div>
     <br>
   </div>
   <script src="../src/bnb.js"></script>
