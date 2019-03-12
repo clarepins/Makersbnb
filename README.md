@@ -1,3 +1,27 @@
+
+# Setup
+
+Install npm and Node.js
+Install express.js ($ npm install express --save)
+Install pg ($ npm install pg)
+Install body-parser ($ npm install body-parser)
+
+Run with 'node index.js'
+
+# How to Set up the Database
+
+CREATE DATABASE "makersBnb";
+\c makersBnb;
+CREATE TABLE listings (id SERIAL PRIMARY KEY, listing_name VARCHAR(60), price VARCHAR(20), description VARCHAR(280), owner_name VARCHAR(280), email VARCHAR(40), phone_num VARCHAR(15));
+-- can also add constraints like only allowing numbers in phone number.
+
+CREATE DATABASE "makersBnb_test";
+\c makersBnb_test;
+CREATE TABLE listings (id SERIAL PRIMARY KEY, listing_name VARCHAR(60), price VARCHAR(20), description VARCHAR(280), owner_name VARCHAR(280), email VARCHAR(40), phone_num VARCHAR(15));
+-- can also add constraints like only allowing numbers in phone number.
+
+#
+
 MakersBnB specification
 We would like a web application that allows users to list spaces they have available, and to hire spaces for the night.
 

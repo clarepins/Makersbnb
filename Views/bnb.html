@@ -14,6 +14,25 @@
         <h1>Makers Bnb!</h1>
       </div>
     </div>
-  <script src="../src/bnb.js"></script>
+  <script src="../postgres-node/index.js"></script>
+  <script>
+
+    var name = <%= hello %>
+    console.log(name)
+
+    const pg = require("pg");
+    const pool = new pg.Pool({
+    host: "localhost",
+    database: "makersBnb",
+    port: "5432"});
+
+    pool.query('SELECT * FROM listings WHERE id=1', (err, res) => {
+    return res
+    pool.end
+
+    });
+
+    console.log(name)
+</script>
     </body>
 </html>
