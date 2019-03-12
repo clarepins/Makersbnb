@@ -1,6 +1,14 @@
-MakersBnB specification
+# MakersBnB specification
 We would like a web application that allows users to list spaces they have available, and to hire spaces for the night.
 
+## Running The Application
+In the terminal use the command `bundle install` to get all the necessary gems.
+
+You'll need to set up production and test databases locally - to do this use the command `psql` in the terminal, followed by each of the commands in `db/production_dbsetup.sql` and `db/test_dbsetup.sql`.
+
+To run the app use the command `rackup` in the terminal and visit the port specified in the terminal, in a browser (e.g. 'localhost:9292').
+
+## Specifications
 Headline specifications
 Any signed-up user can list a new space.
 Users can list multiple spaces.
