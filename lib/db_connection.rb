@@ -3,7 +3,7 @@ require 'pg'
 class DatabaseConnection
 
   def initialize
-    ENV['ENVIRONMENT'] == 'test' ? @conn = PG.connect(dbname: 'makersbnb') : @conn = PG.connect(dbname: 'makersbnb')
+    ENV['ENVIRONMENT'] == 'test' ? @conn = PG.connect(dbname: 'makersbnb_test') : @conn = PG.connect(dbname: 'makersbnb')
   end
 
   def run_query(string)
