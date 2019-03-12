@@ -23,6 +23,7 @@ class Listing
   end
 
   def self.add(property_name:, price:, description:, owner_name:, email:, phone_num:)
-    DatabaseConnection.new.run_query("INSERT INTO listings (id, property_name, price, description, owner_name, email, phone_num) VALUES(DEFAULT,  '#{property_name}', #{price}, '#{description}', '#{owner_name}', '#{email}', '#{phone_num}');")
+    DatabaseConnection.new.run_query("INSERT INTO listings (id, property_name, price, description, owner_name, email, phone_num)
+      VALUES(DEFAULT, '#{property_name}', #{price}, '#{description}', '#{owner_name}', '#{email}', '#{phone_num}');")
   end
 end
