@@ -1,0 +1,2 @@
+CREATE DATABASE makersbnb;
+CREATE TABLE listings(id SERIAL PRIMARY KEY, name VARCHAR(500));
