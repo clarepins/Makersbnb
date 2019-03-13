@@ -14,7 +14,7 @@ class Listing
 
   def self.all
     listings = []
-    DatabaseConnection.new.run_query("select * from listings left outer join users on listings.user_id = users.id").each do |row|
+    DatabaseConnection.new.run_query("select listings.id as id, listings.property_name as property_name, listings.price as price, listings.description as description, users.email as email, users.phone_num as phone_num from listings left outer join users on listings.user_id = users.id").each do |row|
       listings << Listing.new(id: row["id"], property_name: row["property_name"], price: row["price"].to_i, description: row["description"], email: row["email"], phone_num: row["phone_num"])
     end
     p listings
