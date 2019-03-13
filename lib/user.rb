@@ -11,7 +11,7 @@ class User
 
   def self.find(email:)
     users = []
-    DatabaseConnection.new.run_query("SELECT email FROM users WHERE email = '#{email}'").each do |row|
+    DatabaseConnection.new.run_query("SELECT email FROM users WHERE email = '#{email}';").each do |row|
       users << User.new(email: row["email"], password: row["password"])
     end
     return users
@@ -19,9 +19,10 @@ class User
 
   def self.authenticate(email:, password:)
     users = []
-    DatabaseConnection.new.run_query("SELECT email FROM users WHERE email = '#{email}' AND password = '#{password}'").each do |row|
+    DatabaseConnection.new.run_query("SELECT email, password FROM users WHERE email = '#{email}' AND password = '#{password}';").each do |row|
       users << User.new(email: row["email"], password: row["password"])
     end
+    return users
   end
 
 
