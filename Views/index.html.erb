@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="../Public/style.css">
   <title></title>
+<<<<<<< HEAD
   <style> body {
     display: flex;
     flex-direction: column;
@@ -38,6 +39,54 @@
     text-align: left;
   }
 </style>
+=======
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    body.home {
+      background-image: url("green_bathroom.jpg");
+    }
+
+    body.addListing {
+      background-image: url("living_room.jpg");
+    }
+
+    div[class = "container"], [id = "header"] {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+    }
+
+    div[class = "container"], [id = "add-new-listing"] {
+      background-color: #d1f5cf;
+    }
+
+    div [id="list"] {
+      background-color: white;
+      justify-content: center;
+      text-align: left;
+      display: flex;
+      flex-direction: row;
+    }
+
+    #header, #add-new-listing {
+      width: 60%;
+      background-color: #eee;
+    }
+
+    #post {
+      align-items: center;
+      justify-content: center;
+    }
+
+  </style>
+>>>>>>> 4a171457a4f8b367ca765c5e8ba0da3c9ba3c567
 </head>
 <body class="home">
   <div id="header" class="container">
@@ -57,43 +106,21 @@
     <br>
     <br>
     <div id="listing" class="container">
-      <div id="listing-col1" class="container">
-        <h4>Property name: </h4>
-        <p>Price per night: </p>
-        <p>Description: </p>
-      </div>
-      <div id="listing-col2" class="container">
-        <h5>Owner name: </h5>
-        <p>Email: </p>
-        <p>Phone: </p>
-      </div>
-    </div>
-    <br>
-    <div id="listing" class="container">
-      <div id="listing-col1" class="container">
-        <h4>Property name: </h4>
-        <p>Price per night: </p>
-        <p>Description: </p>
-      </div>
-      <div id="listing-col2" class="container">
-        <h5>Owner name: </h5>
-        <p>Email: </p>
-        <p>Phone: </p>
-      </div>
+      <h2>Some listings...</h2><br> <% Listing.all.each do |post| %>
+        <div id="list" class="container">
+          <div id="post_one" class="post">
+          Name: <%= post.property_name %><br><br>
+          Price: £<%= post.price %><br><br>
+          Description: <%= post.description %><br><br>
+          </div>
+          <div id="post_two" class="post">
+          Owner Name: <%= post.owner_name %><br><br>
+          Email: <%= post.email %><br><br>
+          Phone Number: <%= post.phone_num %><br><br>
+          </div>
+        </div>
+        <% end %>
     </div>
     <br>
   </div>
-
-  <div class="container">
-    <h2>Some listings...</h2><br> <% Listing.all.each do |post| %>
-      <div class="container">
-        Name: <%= post.property_name %><br>
-        Price: £<%= post.price %><br>
-        Description: <%= post.description %><br>
-        Owner Name: <%= post.owner_name %><br>
-        Email: <%= post.email %><br>
-        Phone Number: <%= post.phone_num %><br>
-      </div>
-      <% end %>
-    </div>
 </body>

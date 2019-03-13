@@ -5,6 +5,40 @@
     <title>Add a new listing</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../Public/style.css">
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      body.home {
+        background-image: url("green_bathroom.jpg");
+      }
+
+      body.addListing {
+        background-image: url("living_room.jpg");
+      }
+
+      div[class = "container"], [id = "header"] {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+      }
+
+      div[class = "container"], [id = "add-new-listing"] {
+        background-color: #d1f5cf;
+      }
+
+      div [id="listing"] {
+        background-color: white;
+        justify-content: left;
+        text-align: left;
+      }
+
+    </style>
 
     <style> body {
       display: flex;
@@ -45,19 +79,19 @@
       <h1>Add a new listing</h1>
     </div>
     <br>
-    <form class="" action="index.html" method="post">
+    <form class="" action="/save_listing" method="post">
       <div id="add-new-listing" class="container">
         <h2>About property</h2>
-        <label for="property-name-input">Property name: </label><input type="text" name="name-input" value="" placeholder="e.g. house in Kent.."></input><br>
-        <label for="price-input">Price per night: </label><input type="text" name="name-input" value="" placeholder="£"></input><br>
-        <label for="description-input">Description: </label><textarea type="text" name="name-input" value="" rows="5" cols="60" placeholder="e.g. a beautiful 4 bedroom flat in the contryside.."></textarea><br>
+        <label for="property_name_input">Property name: </label><input type="text" name="property_name_input" value="" placeholder="e.g. house in Kent.."></input><br>
+        <label for="price_input">Price per night: </label><input type="text" name="price_input" value="" placeholder="£"></input><br>
+        <label for="description_input">Description: </label><textarea type="text" name="description_input" value="" rows="5" cols="60" placeholder="e.g. a beautiful 4 bedroom flat in the contryside.."></textarea><br>
       </div>
       <br>
       <div id="add-new-listing" class="container">
         <h2>About user</h2>
-        <label for="name-input">Name: </label><input type="text" name="name-input" value=""></input><br>
-        <label for="email-input">Email: </label><input type="text" name="name-input" value="" size="30" placeholder="@yahoo.com"></input><br>
-        <label for="phone-number-input">Phone number: </label><input type="text" name="name-input" value="" placeholder="+44"></input><br>
+        <label for="name_input">Name: </label><input type="text" name="name_input" value=""></input><br>
+        <label for="email_input">Email: </label><input type="text" name="email_input" value="" size="30" placeholder="@yahoo.com"></input><br>
+        <label for="phone_number_input">Phone number: </label><input type="text" name="phone_number_input" value="" placeholder="+44"></input><br>
       </div>
       <input type="submit" name="" value="Submit" class="btn btn-primary"></input>
       </form>

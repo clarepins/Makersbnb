@@ -10,10 +10,4 @@ describe User do
 end
 
 
-
-  # it 'authenticates when a valid email and password is given' do
-  #   authenticated_user = User.authenticate(user.email, user.password)
-  #   expect(authenticated_user).to eq(user)
-  # end
-
 end
