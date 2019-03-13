@@ -29,4 +29,12 @@ class Makersbnb < Sinatra::Base
     post '/signup' do
       redirect '/'
     end
+
+    get '/login' do
+      erb :login
+    end
+
+    post '/login' do
+      redirect '/'
+    end
   end
