@@ -8,14 +8,14 @@ class Makersbnb < Sinatra::Base
     erb :'index.html'
   end
 
- get '/add_listing' do
-   erb :add_listing
- end
+  get '/add_listing' do
+    erb :add_listing
+  end
 
- post '/save_listing' do
-   Listing.add(property_name: params[:property_name_input],
-     price: params[:price_input],
-     description: params[:description_input])
-   redirect '/'
- end
+  post '/save_listing' do
+    Listing.add(property_name: params[:property_name_input],
+      price: params[:price_input],
+      description: params[:description_input])
+    redirect '/'
+  end
 end
