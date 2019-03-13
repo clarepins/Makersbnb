@@ -9,7 +9,7 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/add_listing' do
-    erb :add_listing
+    erb :'add_listing.html'
   end
 
   post '/save_listing' do
@@ -23,18 +23,23 @@ class Makersbnb < Sinatra::Base
     end
 
     get '/signup' do
-      erb :signup
+      erb :'signup.html'
     end
 
     post '/signup' do
+      params[:email_input]
+      params[:phone_num_input]
+      params[:password_input]
       redirect '/'
     end
 
     get '/login' do
-      erb :login
+      erb :'login.html'
     end
 
-    post '/login' do
+    post '/login.html' do
+      params[:email_input]
+      params[:password_input]
       redirect '/'
     end
   end
