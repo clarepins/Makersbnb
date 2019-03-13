@@ -15,11 +15,15 @@
     <h1>Makers Bnb</h1>
     <h2>Listings post here...</h2>
   </div>
+
+  <% unless @authenticate.nil? %>
   <div id="add-new-listing" class="container">
     <form action="/add_listing" method="get">
       <input type="submit" class="btn btn-primary" name="addNewListing" value="add new listing">
     </form>
   </div>
+  <% end %>
+
   <div id="signup" class="container">
     <form action="/signup" method="get">
       <input type="submit" class="btn btn-primary" name="signup" value="Sign up">
