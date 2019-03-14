@@ -1,6 +1,9 @@
 require 'sinatra/base'
 require './lib/listings.rb'
 require 'sinatra/flash'
+require './lib/db_connection.rb'
+require './lib/user.rb'
+require './lib/listings.rb'
 
 class Makersbnb < Sinatra::Base
 
@@ -37,9 +40,13 @@ class Makersbnb < Sinatra::Base
       erb :'login.html'
     end
 
-    post '/login.html' do
-      params[:email_input]
-      params[:password_input]
+    post '/login' do
+      p params[:email_input]
+      p params[:password_input]
+      user = User.authenticate(email: params[:email_input], password: params[:password_input])
+      # session[:user_id] = user.id
+      # where does :user_id come from? html file?
+      # It doesn't like user.id . SHould we use user.first.id?
       redirect '/'
     end
   end

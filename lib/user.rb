@@ -1,6 +1,7 @@
 class User
-  attr_reader :email, :password
-  def initialize(email:, password:)
+  attr_reader :id, :email, :password
+  def initialize(id:, email:, password:)
+    @id
     @email = email
     @password = password
   end
@@ -12,7 +13,7 @@ class User
   def self.find(email:)
     users = []
     DatabaseConnection.new.run_query("SELECT email FROM users WHERE email = '#{email}';").each do |row|
-      users << User.new(email: row["email"], password: row["password"])
+      users << User.new(id: row["id"], email: row["email"], password: row["password"])
     end
     return users
   end
@@ -20,11 +21,8 @@ class User
   def self.authenticate(email:, password:)
     users = []
     DatabaseConnection.new.run_query("SELECT email, password FROM users WHERE email = '#{email}' AND password = '#{password}';").each do |row|
-      users << User.new(email: row["email"], password: row["password"])
+      users << User.new(id: row["id"], email: row["email"], password: row["password"])
     end
     return users
   end
-
-
-
 end

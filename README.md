@@ -35,3 +35,12 @@ A ‘chat’ functionality once a space has been booked, allowing users whose sp
 Basic payment implementation though Stripe.
 Mockups
 Mockups for MakersBnB are available here.
+
+
+## testing in irb
+require './lib/db_connection.rb'
+require './lib/listings.rb'
+require './lib/user.rb'
+User.add(email: 'x', phone_num: 'y', password: 'z')
+User.find(email: 'x')
+User.authenticate(email: 'x', password: 'z')
