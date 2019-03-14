@@ -18,7 +18,9 @@ describe User do
   end
 
   it 'returns nil when email is not recognised' do
-    expect(User.authenticate(email: "mark@yahoo.com", password: "wrongPassword")).to be_nil
+    expect(User.authenticate(email: "mark@wrongEmail.com", password: "n-a")).to be_nil
   end
+
+  # it 'returns '
 
 end
