@@ -9,22 +9,12 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/add_listing' do
-<<<<<<< HEAD
-    erb :add_listing
-=======
     erb :'add_listing.html'
->>>>>>> master
   end
 
   post '/save_listing' do
     Listing.add(property_name: params[:property_name_input],
       price: params[:price_input],
-<<<<<<< HEAD
-      description: params[:description_input])
-    redirect '/'
-  end
-end
-=======
       description: params[:description_input],
       owner_name: params[:name_input],
       email: params[:email_input],
@@ -53,4 +43,3 @@ end
       redirect '/'
     end
   end
->>>>>>> master
