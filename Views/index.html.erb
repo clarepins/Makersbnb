@@ -1,106 +1,53 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="../Public/style.css">
+  <link rel="stylesheet" type="text/css" href="/style.css" />
   <title></title>
-<<<<<<< HEAD
-  <style> body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  body.home {
-    background-image: url("green_bathroom.jpg");
-  }
-
-  body.addListing {
-    background-image: url("living_room.jpg");
-  }
-
-  div[class = "container"], [id = "header"] {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-  }
-
-  div[class = "container"], [id = "add-new-listing"] {
-    background-color: #d1f5cf;
-  }
-
-  div [id="listing"] {
-    background-color: white;
-    justify-content: left;
-    text-align: left;
-  }
-</style>
-=======
-  <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    body.home {
-      background-image: url("green_bathroom.jpg");
-    }
-
-    body.addListing {
-      background-image: url("living_room.jpg");
-    }
-
-    div[class = "container"], [id = "header"] {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border-radius: 5px;
-    }
-
-    div[class = "container"], [id = "add-new-listing"] {
-      background-color: #d1f5cf;
-    }
-
-    div [id="list"] {
-      background-color: white;
-      justify-content: center;
-      text-align: left;
-      display: flex;
-      flex-direction: row;
-    }
-
-    #header, #add-new-listing {
-      width: 60%;
-      background-color: #eee;
-    }
-
-    #post {
-      align-items: center;
-      justify-content: center;
-    }
-
-  </style>
->>>>>>> 4a171457a4f8b367ca765c5e8ba0da3c9ba3c567
 </head>
+
 <body class="home">
+
   <div id="header" class="container">
-    <h1>Makers Bnb!</h1>
+    <h1>Makers Bnb</h1>
     <h2>Listings post here...</h2>
   </div>
+
+  <% if @authenticate.nil? %>
+  <div id="signup" class="container">
+    <form action="/signup" method="get">
+      <input type="submit" class="btn btn-primary" name="signup" value="Sign up">
+    </form>
+  </div>
+
+  <div id="login" class="container">
+    <form action="/login" method="get">
+      <input type="submit" class="btn btn-primary" name="signup" value="Log in">
+    </form>
+  </div>
+  <% end %>
+
+  <% unless @authenticate.nil? %>
+  <div id="logout" class="container">
+    <form action="/add_listing" method="get">
+      <input type="submit" class="btn btn-primary" name="logout" value="Log Out">
+    </form>
+  </div>
+
   <div id="add-new-listing" class="container">
-    <form class="" action="/add_listing" method="get">
+    <form action="/add_listing" method="get">
       <input type="submit" class="btn btn-primary" name="addNewListing" value="add new listing">
     </form>
   </div>
+  <% end %>
+
   <br>
   <br>
   <br>
+
   <div id="list-listings" class="container">
     <h2>Listings...</h2>
     <br>
@@ -122,4 +69,5 @@
     </div>
     <br>
   </div>
+
 </body>
