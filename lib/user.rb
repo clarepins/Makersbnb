@@ -18,9 +18,11 @@ class User
     return users
   end
 
-  def self.authenticate(email:, password:)
+  def self.authenticate(email:, password:)  
+    result = DatabaseConnection.new.run_query("SELECT email, password FROM users WHERE email = '#{email}' AND password = '#{password}';")
+    return unless result.any?
     users = []
-    DatabaseConnection.new.run_query("SELECT email, password FROM users WHERE email = '#{email}' AND password = '#{password}';").each do |row|
+    result.each do |row|
       users << User.new(id: row["id"], email: row["email"], password: row["password"])
     end
     return users
