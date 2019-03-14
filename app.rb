@@ -16,9 +16,9 @@ class Makersbnb < Sinatra::Base
     Listing.add(property_name: params[:property_name_input],
       price: params[:price_input],
       description: params[:description_input],
-      owner_name: params[:name_input],
-      email: params[:email_input],
-      phone_num: params[:phone_number_input])
+      user_id: 1,
+      start_date: params[:range_start],
+      end_date: params[:range_end])
       redirect '/'
     end
 

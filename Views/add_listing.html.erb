@@ -19,16 +19,16 @@
         <label for="description_input">Description: </label><textarea type="text" name="description_input" value="" rows="5" cols="40" placeholder="e.g. a beautiful 4 bedroom flat in the contryside.."></textarea>
     <br>
       <label for="start">Start date:</label>
-      <input type="date" id="date-start" name="range-start"
+      <input type="date" id="date-start" name="range_start"
       <% require 'date'  %>
-             value= <%= Date.today.to_s %>
-             min= <%= Date.today.to_s %> max= <%= (Date.today + 365).to_s %>
+             value= <%= Date.today %>
+             min= <%= Date.today %> max= <%= (Date.today + 365) %>
       </input>
 
       <label for="end">End date:</label>
-      <input type="date" id="date-end" name="range-end"
-             value= <%= Date.today.to_s %>
-             min= <%= Date.today.to_s %> max= <%= (Date.today + 365).to_s %>
+      <input type="date" id="date-end" name="range_end"
+             value= <%= Date.today %>
+             min= <%= Date.today %> max= <%= (Date.today + 365) %>
       </input>
       <br>
       <br>
