@@ -15,5 +15,28 @@ describe Listing do
     expect(@listings.first.price).to eq(100)
     expect(@listings.first.description).to eq("this is description")
 
+
   end
+
+  # it "filter by dates" do
+  #   Listing.add(property_name: "this is the name",
+  #     price: 100,
+  #     description: "this is description",
+  #     user_id: 1,
+  #     start_date: "2019-03-24",
+  #     end_date: "2019-04-01"
+  #   )
+  #   @listings = Listing.filter(start_date: "2019-05-09", end_date: "2019-05-30")
+  #   wrong_listing = []
+  #   @listings.each do |listing|
+  #     unless listing.start_date >= "2019-05-09" && listing.end_date <= "2019-05-30"
+  #       wrong_listing << listing
+  #     end
+  #   end
+  #
+  # expect(wrong_listing).to be_empty
+  # end
+
+
+
 end
