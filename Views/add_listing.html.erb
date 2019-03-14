@@ -16,12 +16,33 @@
         <h2>About property</h2>
         <label for="property_name_input">Property name: </label><input type="text" name="property_name_input" value="" placeholder="e.g. house in Kent.."></input><br>
         <label for="price_input">Price per night: </label><input type="text" name="price_input" value="" placeholder="£"></input><br>
-        <label for="description_input">Description: </label><textarea type="text" name="description_input" value="" rows="5" cols="40" placeholder="e.g. a beautiful 4 bedroom flat in the contryside.."></textarea><br>
-      </div>
+        <label for="description_input">Description: </label><textarea type="text" name="description_input" value="" rows="5" cols="40" placeholder="e.g. a beautiful 4 bedroom flat in the contryside.."></textarea>
+    <br>
+      <label for="start">Start date:</label>
+      <input type="date" id="date-start" name="range-start"
+      <% require 'date'  %>
+             value= <%= Date.today.to_s %>
+             min= <%= Date.today.to_s %> max= <%= (Date.today + 365).to_s %>
+      </input>
+
+      <label for="end">End date:</label>
+      <input type="date" id="date-end" name="range-end"
+             value= <%= Date.today.to_s %>
+             min= <%= Date.today.to_s %> max= <%= (Date.today + 365).to_s %>
+      </input>
       <br>
-      
-      <input type="submit" name="" value="Submit" class="btn btn-primary"></input>
-      </form>
+      <br>
+
+    <input type="submit" name="submit-listing" value="Submit" class="btn btn-primary"></input>
+    <br>
+    </form>
+
+    </div>
+
+
+    <br>
+    <br>
+    <br>
 
   </body>
 </html>
