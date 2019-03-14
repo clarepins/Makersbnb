@@ -10,6 +10,7 @@ class User
     users = []
     result = DatabaseConnection.new.run_query("INSERT INTO users (id, email, phone_num, password) VALUES(DEFAULT, '#{email}', '#{phone_num}', '#{password}') RETURNING id, email, password;")
     users << User.new(id: result[0]["id"], email: result[0]["email"], password: result[0]["password"])
+    return users
   end
 
   def self.find(email:)

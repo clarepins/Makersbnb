@@ -7,7 +7,10 @@ require './lib/listings.rb'
 
 class Makersbnb < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
+
     erb :'index.html'
   end
 
@@ -30,9 +33,10 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/signup' do
-    User.add(email: params[:email_input],
+    user = User.add(email: params[:email_input],
       phone_num: params[:phone_num_input],
       password: params[:password_input])
+    session[:user_id] = user[0].id
     redirect '/'
   end
 
@@ -40,11 +44,19 @@ class Makersbnb < Sinatra::Base
     erb :'login.html'
   end
 
+  get '/wrong' do
+    erb :'wrong.html'
+  end
+
   post '/login' do
     user = User.authenticate(email: params[:email_input], password: params[:password_input])
-    session[:user_id] = user.id
-    # where does :user_id come from? html file?
-    # It doesn't like user.id .
-    redirect '/'
+
+    if user
+      session[:user_id] = user[0].id
+      redirect '/'
+    else
+      redirect '/wrong'
+    end
+
   end
 end

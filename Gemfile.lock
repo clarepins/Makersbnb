@@ -55,6 +55,8 @@ GEM
       json
       websocket (~> 1.0)
     rack (2.0.6)
+    rack-flash (0.1.2)
+      rack
     rack-protection (2.0.5)
       rack
     rack-test (1.1.0)
@@ -124,6 +126,7 @@ DEPENDENCIES
   capybara
   orderly
   pg
+  rack-flash
   rspec
   rubocop (= 0.56.0)
   shotgun
