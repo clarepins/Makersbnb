@@ -24,8 +24,8 @@ class Listing
 
   def self.add(property_name:, price:, description:, user_id:, start_date:, end_date:)
     # These two lines mean SQL query treats a single quote as a string character and doesn't cause a bug
-    property_name = property_name.gsub("'","\\'")
-    description = description.gsub("'","\\'")
+    property_name = property_name.gsub("'","")
+    description = description.gsub("'","")
     DatabaseConnection.new.run_query("INSERT INTO listings (id, property_name, price, description, user_id, start_date, end_date) VALUES(DEFAULT, '#{property_name}', #{price}, '#{description}', #{user_id}, '#{start_date}', '#{end_date}');")
   end
 
