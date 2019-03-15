@@ -65,8 +65,8 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/filter_listings' do
-    params[:filter_start]
-    params[:filter_end]
+    Listing.filter(start_date: params[:filter_start],
+      end_date: params[:filter_end])
     redirect '/'
   end
 end
