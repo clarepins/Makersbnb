@@ -77,7 +77,12 @@
     <br>
     <br>
     <div id="listing" class="container">
-      <h2>Some listings...</h2><br> <% Listing.all.each do |post| %>
+      <% if Listing.return_filtered_listings.nil? %>
+        <% listings = Listing.all%>
+      <% else %>
+        <% listings = Listing.return_filtered_listings %>
+      <% end %>
+      <% listings.each do |post| %>
         <div id="list" class="container">
           <div id="post_one" class="post">
           <p>
