@@ -44,3 +44,6 @@ require './lib/user.rb'
 User.add(email: 'x', phone_num: 'y', password: 'z')
 User.find(email: 'x')
 User.authenticate(email: 'x', password: 'z')
+Listing.add(property_name: "house", price: 340, description: "beautiful", user_id: 6, start_date: "2019-03-15", end_date: "2019-03-18")
+Listing.filter(start_date: "2019-03-16", end_date:"2019-03-17")
+Listing.return_filtered_listings
