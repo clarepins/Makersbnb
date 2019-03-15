@@ -22,9 +22,11 @@ class Makersbnb < Sinatra::Base
     Listing.add(property_name: params[:property_name_input],
       price: params[:price_input],
       description: params[:description_input],
-      user_id: session[:user_id])
-    redirect '/'
-  end
+      user_id: 1,
+      start_date: params[:range_start],
+      end_date: params[:range_end])
+      redirect '/'
+    end
 
   get '/signup' do
     erb :'signup.html'
@@ -61,5 +63,10 @@ class Makersbnb < Sinatra::Base
       redirect '/wrong'
     end
 
+    post '/filter_listings' do
+      params[:filter_start]
+      params[:filter_end]
+      redirect '/'
+    end
   end
 end

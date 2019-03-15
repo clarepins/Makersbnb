@@ -43,6 +43,30 @@
     </form>
   </div>
   <% end %>
+  <br>
+  <br>
+  <br>
+<div class="container">
+  <br>
+  <form action="/filter_listings" method="post">
+  <label for="start">Start date:</label>
+  <input type="date" id="filter-start" name="filter_start"
+  <% require 'date'  %>
+         value= <%= Date.today %>
+         min= <%= Date.today %> max= <%= (Date.today + 365) %>
+  </input>
+
+  <label for="end">End date:</label>
+  <input type="date" id="filter-end" name="filter_end"
+         value= <%= Date.today %>
+         min= <%= Date.today %> max= <%= (Date.today + 365) %>
+  </input>
+  <input type="submit" class="btn btn-primary" name="filter_listings" value="Filter listings">
+  </input>
+  <br>
+  </form>
+  </div>
+
 
   <br>
   <br>
@@ -56,18 +80,23 @@
       <h2>Some listings...</h2><br> <% Listing.all.each do |post| %>
         <div id="list" class="container">
           <div id="post_one" class="post">
-          Name: <%= post.property_name %><br><br>
-          Price: £<%= post.price %><br><br>
-          Description: <%= post.description %><br><br>
-          </div>
-          <div id="post_two" class="post">
-          Email: <%= post.email %><br><br>
-          Phone Number: <%= post.phone_num %><br><br>
+          <p>
+          <center><b>Name: <%= post.property_name %></b><center>
+          Price: £<%= post.price %>
+          <br>
+          Description: <%= post.description %>
+          <br>
+          Email: <%= post.email %>
+          <br>
+          Phone Number: <%= post.phone_num %>
+          <br>
+          Available from: <%= post.start_date %> - <%= post.end_date %>
+          </p>
+          <hr class="listing-separator">
           </div>
         </div>
         <% end %>
     </div>
     <br>
   </div>
-
 </body>
