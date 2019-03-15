@@ -37,7 +37,6 @@ describe Listing do
     expect(wrong_listing).to be_empty
   end
 
-
   it "filter by dates" do
     clean_test_database
     Listing.add(property_name: "this is the name",
@@ -50,5 +49,4 @@ describe Listing do
     c_listings = Listing.filter(start_date: "2019-03-28", end_date: "2019-03-30")
     expect(c_listings[0].property_name).to eq("this is the name")
   end
-
 end

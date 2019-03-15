@@ -35,5 +35,4 @@ class Listing
     end
     return filtered_listings
   end
-
 end
