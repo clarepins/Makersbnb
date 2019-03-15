@@ -41,7 +41,7 @@ describe Listing do
     Listing.add(property_name: "this is the name",
       price: 100,
       description: "this is description",
-      user_id: 1,
+      user_id: 1, 
       start_date: "2019-03-24",
       end_date: "2019-04-01"
     )
