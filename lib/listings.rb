@@ -25,4 +25,9 @@ class Listing
   def self.add(property_name:, price:, description:, user_id:, start_date:, end_date:)
     DatabaseConnection.new.run_query("INSERT INTO listings (id, property_name, price, description, user_id, start_date, end_date) VALUES(DEFAULT,  '#{property_name}', #{price}, '#{description}', #{user_id}, '#{start_date}', '#{end_date}');")
   end
+
+  def self.filter(start_date:, end_date:)
+    []
+  end
+
 end
