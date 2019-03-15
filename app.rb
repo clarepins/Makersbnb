@@ -10,7 +10,7 @@ class Makersbnb < Sinatra::Base
   enable :sessions
 
   get '/' do
-
+    @user = session[:user_id]
     erb :'index.html'
   end
 
@@ -33,10 +33,10 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/signup' do
-    user = User.add(email: params[:email_input],
+    @user = User.add(email: params[:email_input],
       phone_num: params[:phone_num_input],
       password: params[:password_input])
-    session[:user_id] = user[0].id
+    session[:user_id] = @user.first.id
     redirect '/'
   end
 
@@ -44,15 +44,20 @@ class Makersbnb < Sinatra::Base
     erb :'login.html'
   end
 
+  get '/logout' do
+    session.clear
+    redirect '/'
+  end
+
   get '/wrong' do
     erb :'wrong.html'
   end
 
   post '/login' do
-    user = User.authenticate(email: params[:email_input], password: params[:password_input])
+    @user = User.authenticate(email: params[:email_input], password: params[:password_input])
 
-    if user
-      session[:user_id] = user[0].id
+    if @user
+      session[:user_id] = @user[0].id
       redirect '/'
     else
       redirect '/wrong'

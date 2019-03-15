@@ -16,7 +16,7 @@
     <h2>Listings post here...</h2>
   </div>
 
-  <% if @authenticate.nil? %>
+  <% unless @user %>
   <div id="signup" class="container">
     <form action="/signup" method="get">
       <input type="submit" class="btn btn-primary" name="signup" value="Sign up">
@@ -30,9 +30,9 @@
   </div>
   <% end %>
 
-  <% unless @authenticate.nil? %>
+  <% if @user %>
   <div id="logout" class="container">
-    <form action="/add_listing" method="get">
+    <form action="/logout" method="get">
       <input type="submit" class="btn btn-primary" name="logout" value="Log Out">
     </form>
   </div>
