@@ -62,11 +62,11 @@ class Makersbnb < Sinatra::Base
     else
       redirect '/wrong'
     end
+  end
 
-    post '/filter_listings' do
-      params[:filter_start]
-      params[:filter_end]
-      redirect '/'
-    end
+  post '/filter_listings' do
+    params[:filter_start]
+    params[:filter_end]
+    redirect '/'
   end
 end
