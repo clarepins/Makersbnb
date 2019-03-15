@@ -13,58 +13,64 @@
 
   <div id="header" class="container">
     <h1>Makers Bnb</h1>
-    <h2>Listings post here...</h2>
-  </div>
 
   <% unless @user %>
-  <div id="signup" class="container">
     <form action="/signup" method="get">
       <input type="submit" class="btn btn-primary" name="signup" value="Sign up">
     </form>
-  </div>
 
-  <div id="login" class="container">
+    <br>
+
     <form action="/login" method="get">
       <input type="submit" class="btn btn-primary" name="login" value="Log in">
     </form>
+
+    <br>
+
   </div>
   <% end %>
 
   <% if @user %>
-  <div id="logout" class="container">
+    <form action="/add_listing" method="get">
+      <input type="submit" class="btn btn-primary" name="addNewListing" value="New Listing">
+    </form>
+
+  <br>
+
     <form action="/logout" method="get">
       <input type="submit" class="btn btn-primary" name="logout" value="Log Out">
     </form>
-  </div>
 
-  <div id="add-new-listing" class="container">
-    <form action="/add_listing" method="get">
-      <input type="submit" class="btn btn-primary" name="addNewListing" value="add new listing">
-    </form>
+    <br>
+
   </div>
   <% end %>
   <br>
   <br>
   <br>
-<div class="container">
-  <br>
-  <form action="/filter_listings" method="post">
-  <label for="start">Start date:</label>
-  <input type="date" id="filter-start" name="filter_start"
-  <% require 'date'  %>
-         value= <%= Date.today %>
-         min= <%= Date.today %> max= <%= (Date.today + 365) %>
-  </input>
 
-  <label for="end">End date:</label>
-  <input type="date" id="filter-end" name="filter_end"
-         value= <%= Date.today %>
-         min= <%= Date.today %> max= <%= (Date.today + 365) %>
-  </input>
-  <input type="submit" class="btn btn-primary" name="filter_listings" value="Filter listings">
-  </input>
-  <br>
-  </form>
+  <div class="container">
+    <h2>Choose Dates</h2>
+    <br>
+    <form action="/filter_listings" method="post">
+    <label for="start">Start date:</label>
+    <input type="date" id="filter-start" name="filter_start"
+    <% require 'date'  %>
+           value= <%= Date.today %>
+           min= <%= Date.today %> max= <%= (Date.today + 365) %>
+    </input>
+
+    <label for="end">End date:</label>
+    <input type="date" id="filter-end" name="filter_end"
+           value= <%= Date.today %>
+           min= <%= Date.today %> max= <%= (Date.today + 365) %>
+    </input>
+    <div class="container">
+      <input type="submit" class="btn btn-primary" name="filter_listings" value="Filter listings">
+      </input>
+    </div>
+    <br>
+    </form>
   </div>
 
 
@@ -73,11 +79,12 @@
   <br>
 
   <div id="list-listings" class="container">
+    <br>
     <h2>Listings...</h2>
     <br>
     <br>
     <div id="listing" class="container">
-      <h2>Some listings...</h2><br> <% Listing.all.each do |post| %>
+      <% Listing.all.each do |post| %>
         <div id="list" class="container">
           <div id="post_one" class="post">
           <p>
