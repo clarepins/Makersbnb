@@ -27,7 +27,13 @@ class Listing
   end
 
   def self.filter(start_date:, end_date:)
-    []
+    filtered_listings = []
+    self.all.each do |listing|
+      if listing.start_date <= start_date && listing.end_date >= end_date
+        filtered_listings << listing
+      end
+    end
+    return filtered_listings
   end
 
 end
