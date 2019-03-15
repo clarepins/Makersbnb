@@ -14,12 +14,12 @@
     <form class="" action="/save_listing" method="post">
       <div id="add-new-listing" class="container">
         <h2>About property</h2>
-        <label for="property_name_input">Property name: </label><input type="text" name="property_name_input" value="" placeholder="e.g. house in Kent.."></input><br>
-        <label for="price_input">Price per night: </label><input type="text" name="price_input" value="" placeholder="£"></input><br>
-        <label for="description_input">Description: </label><textarea type="text" name="description_input" value="" rows="5" cols="40" placeholder="e.g. a beautiful 4 bedroom flat in the contryside.."></textarea><br>
+        <label for="property_name_input">Property name: </label><input type="text" name="property_name_input" value="" placeholder="e.g. house in Kent.." required></input><br>
+        <label for="price_input">Price per night: </label><input type="number" name="price_input" value="" placeholder="£" required></input><br>
+        <label for="description_input">Description: </label><textarea type="text" name="description_input" value="" rows="5" cols="40" placeholder="e.g. a beautiful 4 bedroom flat in the contryside.." required></textarea><br>
       </div>
       <br>
-      
+
       <input type="submit" name="" value="Submit" class="btn btn-primary"></input>
       </form>
 
