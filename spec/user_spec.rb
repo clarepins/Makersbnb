@@ -15,7 +15,12 @@ describe User do
     authenticated_user = User.authenticate(email: "mark@yahoo.com", password: "abcd")
     expect(authenticated_user.first.email).to eq("mark@yahoo.com")
     expect(authenticated_user.first.password).to eq("abcd")
-
   end
+
+  it 'returns nil when email is not recognised' do
+    expect(User.authenticate(email: "mark@wrongEmail.com", password: "n-a")).to be_nil
+  end
+
+  # it 'returns '
 
 end

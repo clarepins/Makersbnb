@@ -1,10 +1,16 @@
 require 'sinatra/base'
 require './lib/listings.rb'
 require 'sinatra/flash'
+require './lib/db_connection.rb'
+require './lib/user.rb'
+require './lib/listings.rb'
 
 class Makersbnb < Sinatra::Base
 
+  enable :sessions
+
   get '/' do
+    @user = session[:user_id]
     erb :'index.html'
   end
 
@@ -19,27 +25,43 @@ class Makersbnb < Sinatra::Base
       owner_name: params[:name_input],
       email: params[:email_input],
       phone_num: params[:phone_number_input])
-      redirect '/'
-    end
-
-    get '/signup' do
-      erb :'signup.html'
-    end
-
-    post '/signup' do
-      params[:email_input]
-      params[:phone_num_input]
-      params[:password_input]
-      redirect '/'
-    end
-
-    get '/login' do
-      erb :'login.html'
-    end
-
-    post '/login.html' do
-      params[:email_input]
-      params[:password_input]
-      redirect '/'
-    end
+    redirect '/'
   end
+
+  get '/signup' do
+    erb :'signup.html'
+  end
+
+  post '/signup' do
+    @user = User.add(email: params[:email_input],
+      phone_num: params[:phone_num_input],
+      password: params[:password_input])
+    session[:user_id] = @user.first.id
+    redirect '/'
+  end
+
+  get '/login' do
+    erb :'login.html'
+  end
+
+  get '/logout' do
+    session.clear
+    redirect '/'
+  end
+
+  get '/wrong' do
+    erb :'wrong.html'
+  end
+
+  post '/login' do
+    @user = User.authenticate(email: params[:email_input], password: params[:password_input])
+
+    if @user
+      session[:user_id] = @user[0].id
+      redirect '/'
+    else
+      redirect '/wrong'
+    end
+
+  end
+end
