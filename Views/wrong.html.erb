@@ -12,17 +12,16 @@
   <div id="header" class="container">
     <h1>Please log in</h1>
   </div>
-  <div id="login_form" class="container">
-    <form action="/login" method="post">
-      <input type="text" name="email_input" value="" placeholder="Email" required></input>
-      <input type="text" name="password_input" value="" placeholder="Password" required></input>
-      <input type="submit" class="btn btn-primary" name="login_user" value="Submit">
-    </form>
+  <div id="wrong" class="container">
+      <h2>Wrong. You should know this (shameful).</h2>
+      <form action="/login" method="get">
+        <input type="submit" class="btn btn-primary" name="back_to_login" value="Login">
+      </form>
   </div>
 
   <div id="login" class="container">
-    <form action="/login" method="get">
-      <input type="submit" class="btn btn-primary" name="signup" value="Log in">
+    <form action="/signup" method="get">
+      <input type="submit" class="btn btn-primary" name="signup" value="Sign up">
     </form>
   </div>
 

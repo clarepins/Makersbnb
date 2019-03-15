@@ -14,7 +14,6 @@ describe Listing do
     expect(@listings.first.property_name).to eq("this is the name")
     expect(@listings.first.price).to eq(100)
     expect(@listings.first.description).to eq("this is description")
-
   end
 
   it "filter by dates" do
