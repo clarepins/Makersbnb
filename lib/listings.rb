@@ -23,9 +23,7 @@ class Listing
   def self.add(property_name:, price:, description:, user_id:)
     # These two lines mean SQL query removes single quotes and doesn't break
     property_name = property_name.gsub("'","")
-    p property_name
     description = description.gsub("'","")
-    p description
     DatabaseConnection.new.run_query("INSERT INTO listings (id, property_name, price, description, user_id) VALUES(DEFAULT,  '#{property_name}', #{price}, '#{description}', #{user_id});")
   end
 end
