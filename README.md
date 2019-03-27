@@ -47,3 +47,9 @@ User.authenticate(email: 'x', password: 'z')
 Listing.add(property_name: "house", price: 340, description: "beautiful", user_id: 6, start_date: "2019-03-15", end_date: "2019-03-18")
 Listing.filter(start_date: "2019-03-16", end_date:"2019-03-17")
 Listing.return_filtered_listings
+
+## System diagrams
+
+Our database has two tables to reflect the two different classes used in our application - `User` and `Listing`:
+
+![database set-up](/system-diagrams/db-diagram.jpg)
