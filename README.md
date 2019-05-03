@@ -8,6 +8,10 @@ You'll need to set up production and test databases locally - to do this use the
 
 To run the app use the command `rackup` in the terminal and visit the port specified in the terminal, in a browser (e.g. 'localhost:9292').
 
+## Running Tests
+
+The application uses Rspec for unit tests and Capybara for feature tests. To run both sets of tests run `rspec` from the root directory. Test coverage will also be shown, using Simplecov.
+
 ## Specifications
 Headline specifications
 Any signed-up user can list a new space.
